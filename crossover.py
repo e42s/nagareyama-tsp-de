@@ -1,15 +1,17 @@
 import random as rd
-import numpy as np
 
 def crossover(inds_1 , inds_2):
 
-    # 交叉する
-    sepapoint = rd.randint(1 , len(inds_1))
+    # 一様交叉
+    # マスク作る
+    mask = [rd.randint(0 , 1) for n in range(len(inds_1))]
+    result = []
 
-    tmp_f_1 = inds_1[: sepapoint].tolist()
-    tmp_b_2 = inds_2[sepapoint :].tolist()
+    # 0 or 1
+    for i in range(len(mask)):
+        if mask[i] == 0:
+            result.append(inds_1[i])
+        elif mask[i] == 1:
+            result.append(inds_2[i])
 
-    tmp_f_1.extend(tmp_b_2)
-    newinds_1 = tmp_f_1
-
-    return newinds_1[:]
+    return result

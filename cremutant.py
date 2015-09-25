@@ -15,13 +15,6 @@ def mutant(x , S):
         else:
             S_minus.append(int(round(i)))
 
-    prototype_mutant = x_1 + S_minus
-
-    mutant_order = []
-    for n in prototype_mutant:
-        if n >= 0 and n < len(x_1) - 1:
-            mutant_order.append(n)
-        elif n < 0 or n >= len(x_1):
-            mutant_order.append(0)
+    mutant_order = x_1 + S_minus
 
     return mutant_order
