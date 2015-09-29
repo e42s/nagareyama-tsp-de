@@ -14,8 +14,8 @@ import cremutant as cm
 
 if __name__ == '__main__':
     individual_path , individual_order , fitness = [] , [] , []
-    inds = 200      # 世代あたりの個体数
-    gens = 300      # 世代数
+    inds = 100      # 世代あたりの個体数
+    gens = 100      # 世代数
     S_factor = 0.5  # Scaling factor
 
     # Read CSV data and Length of dat
@@ -23,6 +23,8 @@ if __name__ == '__main__':
 
     # Create individual(1th Generation) : individual_xxx[inds - 1 , len_dat - 1]
     individual_path , individual_order = cd.createind(inds , len_dat)
+
+    f = open('result.csv' , 'w')
 
     for i in range(gens):
         fitness = [0 for n in range(inds)]
@@ -52,4 +54,7 @@ if __name__ == '__main__':
 
         print(str(i + 1) + "世代目：" + str(max(fitness)) + "\n" + str(individual_path[fitness.index(max(fitness))]))
 
+        f.write(str(i + 1) + "," + str(max(fitness)) + "\n")
+
+    f.close()
     print(individual_path[fitness.index(max(fitness))])

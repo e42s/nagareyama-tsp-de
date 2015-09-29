@@ -3,7 +3,7 @@ import numpy as np
 
 def distance(pos1 , pos2):
     # Demand the oblique side using Pythagorean theorem
-    dist = math.sqrt(int(round((((pos1[0] - pos2[0]) ** 2) + ((pos1[1] - pos2[1]) ** 2)) / 10)))
+    dist = math.sqrt(((pos1[0] - pos2[0]) ** 2) + ((pos1[1] - pos2[1]) ** 2))
 
     return dist
 
